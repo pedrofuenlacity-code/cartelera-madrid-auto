@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Cartelera Cines Madrid</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+  <h2>🎬 Cartelera real — Cines Madrid</h2>
+  <div id="grid"></div>
+  <script>
+  (async()=>{
+    const r = await fetch("/data/enriched/madrid-cartelera.json").catch(()=>null);
+    const j = r && r.ok ? await r.json() : await fetch("/data/madrid-cartelera.json").then(x=>x.json());
+    const grid = document.getElementById("grid");
+    grid.innerHTML = (j.movies||j.titles).map(m=>{
+      const title = m.title||m;
+      const poster = m.poster||"https://via.placeholder.com/300x450?text=Sin+Imagen";
+      const overview = m.overview || "";
+      return `<article style="border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:8px;max-width:320px">
+                <img src="${poster}" style="width:100%;border-radius:8px;background:#f2f2f2">
+                <h3>${title}</h3>
+                ${overview ? `<p>${overview}</p>` : ""}
+              </article>`;
+    }).join("");
+  })();
+  </script>
+</body>
+</html>
