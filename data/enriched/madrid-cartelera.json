@@ -1,0 +1,99 @@
+{
+  "city": "Madrid",
+  "updated_at": "2025-09-04T18:40:42.594Z",
+  "titles": [
+    "You are unable to access cinesa.es",
+    "Why have I been blocked?",
+    "What can I do to resolve this?",
+    "Ingresa tus datos",
+    "¿Nos dejas saber qué YELMO CINES te queda más cerca?",
+    "Buscando...",
+    "CATÁLOGO DE PELÍCULAS",
+    "CAMBIAR DE PAÍS",
+    "Cine Yelmo",
+    "En las Redes",
+    "En tu Móvil",
+    "Políticas",
+    "Ayuda"
+  ],
+  "movies": [
+    {
+      "title": "You are unable to access cinesa.es",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "Why have I been blocked?",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "What can I do to resolve this?",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "Ingresa tus datos",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "¿Nos dejas saber qué YELMO CINES te queda más cerca?",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "Buscando...",
+      "poster": "https://image.tmdb.org/t/p/w500/ly9Q684bxJIcSlrQQsuIy5xVSOs.jpg",
+      "overview": "Gastón Acurio es el cocinero más célebre de Perú, y uno de los más importantes del mundo. Consiguió llevar el gusto por la comida de su país a distintos rincones del planeta. Las cámaras de este documental lo siguieron durante dos años, y encontraron mucho más que el día a día de una celebridad. La película descubre la realización de un sueño personal con la convicción de entender a la cocina como elemento transformador.",
+      "release_date": "2014-03-20"
+    },
+    {
+      "title": "CATÁLOGO DE PELÍCULAS",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "CAMBIAR DE PAÍS",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "Cine Yelmo",
+      "poster": null,
+      "overview": null,
+      "release_date": null
+    },
+    {
+      "title": "En las Redes",
+      "poster": "https://image.tmdb.org/t/p/w500/vtipC7w20dspbxQuDKuMFWbOgom.jpg",
+      "overview": "En plena era de internet, es complicado encontrar a alguien que no posea una cuenta en Facebook, Instagram, X (antiguo Twitter) o TikTok. Y más si hablamos de las nuevas generaciones. Ahora bien, ¿vivimos bajo la tiranía de la falsa felicidad? En las redes sociales, todo el mundo exhibe su vida en directo y puede juzgar la de los demás. Pero esa felicidad virtual solo es una ilusión, porque detrás de esas vidas perfectas hay víctimas ignoradas que sufren adicción, depresión y que incluso pueden llegar al suicidio.",
+      "release_date": "2020-09-01"
+    },
+    {
+      "title": "En tu Móvil",
+      "poster": "https://image.tmdb.org/t/p/w500/bll4enCpQ2lJlBkAeQFrS4J9XQ6.jpg",
+      "overview": "Un asesino que siembra el terror en Niza acaba con la vida de un hombre adinerado. El inspector Carella investiga el caso.",
+      "release_date": "1971-09-15"
+    },
+    {
+      "title": "Políticas",
+      "poster": "https://image.tmdb.org/t/p/w500/tONoNogjfJJgUqJdhbOa5vhuv4f.jpg",
+      "overview": "The documentary is a production that addresses the evolution of health policies in Brazil, highlighting how health practices were implemented and evolved from being seen as an individual duty to a right guaranteed by the state. The film uses a fictional narrative with period reconstruction and is supported by archival material to illustrate the changes in health policies over time. The film's language adapts to the predominant media of each depicted period, such as newspapers, radio, black-and-white TV, color TV, and finally, the internet.  It was produced through the initiative of the Secretariat of Strategic and Participative Management of the Ministry of Health, in partnership with the Organização Pan-Americana da Saúde (OPAS) and the Universidade Federal Fluminense (UFF). It is intended for free distribution, especially focusing on Health Councils, educational institutions, and social movements. A version with Spanish and English subtitles is under discussion to expand its reach.",
+      "release_date": "2006-01-01"
+    },
+    {
+      "title": "Ayuda",
+      "poster": null,
+      "overview": "A forest guard receives a call from a women bitten by a spider. With no more help than his cell phone he will try to save her. But soon he will discover that poison is just one of their problems.",
+      "release_date": "2015-05-25"
+    }
+  ]
+}
