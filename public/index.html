@@ -14,33 +14,41 @@
 <body>
   <h2>🎬 Cartelera real — Cines Madrid</h2>
   <div id="grid">Cargando…</div>
-  <script>
-  (async()=>{
-    const BASE = ""; // JSON servidos por el mismo Pages (copiamos data/ a public/)
-    const enriched = BASE + "/data/enriched/madrid-cartelera.json";
-    const basic    = BASE + "/data/madrid-cartelera.json";
-    const ph = "https://via.placeholder.com/300x450?text=Sin+Imagen";
-    const grid = document.getElementById("grid");
-    try{
-      let j;
-      try {
-        const r = await fetch(enriched,{cache:"no-store"}); if(!r.ok) throw 0;
-        j = await r.json(); if(!Array.isArray(j.movies)||!j.movies.length) throw 0;
-        grid.innerHTML = j.movies.map(m=>`
-          <article>
-            <img src="${m.poster||ph}" alt="${m.title}"><h3>${m.title}</h3>
-            ${m.overview?`<p>${m.overview}</p>`:""}
-          </article>`).join("");
-      } catch {
-        const r2 = await fetch(basic,{cache:"no-store"}); if(!r2.ok) throw new Error("No pude cargar JSON");
-        const j2 = await r2.json(); const titles = [...new Set(j2.titles||[])];
-        grid.innerHTML = titles.map(t=>`
-          <article>
-            <img src="${ph}" alt="${t}"><h3>${t}</h3>
-          </article>`).join("");
-      }
-    } catch(e){ grid.innerHTML = `<p style="color:#b00020">Error: ${e.message||e}</p>`; }
-  })();
-  </script>
+ <script>
+(async()=>{
+  // ✅ PARA PAGES DE PROYECTO: rutas relativas, sin "/"
+  const enriched = "data/enriched/madrid-cartelera.json";
+  const basic    = "data/madrid-cartelera.json";
+
+  const grid = document.getElementById("grid");
+  const ph = "https://via.placeholder.com/300x450?text=Sin+Imagen";
+  try{
+    let j;
+    try {
+      const r = await fetch(enriched, {cache:"no-store"}); if(!r.ok) throw 0;
+      j = await r.json(); if(!Array.isArray(j.movies)||!j.movies.length) throw 0;
+      grid.innerHTML = j.movies.map(m=>`
+        <article>
+          <img src="${m.poster||ph}" alt="${m.title}">
+          <h3>${m.title}</h3>
+          ${m.overview?`<p>${m.overview}</p>`:""}
+        </article>
+      `).join("");
+    } catch {
+      const r2 = await fetch(basic, {cache:"no-store"}); if(!r2.ok) throw new Error("No pude cargar JSON");
+      const j2 = await r2.json(); const titles = [...new Set(j2.titles||[])];
+      grid.innerHTML = titles.map(t=>`
+        <article>
+          <img src="${ph}" alt="${t}">
+          <h3>${t}</h3>
+        </article>
+      `).join("");
+    }
+  }catch(e){
+    grid.innerHTML = `<p style="color:#b00020">Error: ${e.message||e}</p>`;
+  }
+})();
+</script>
+
 </body>
 </html>
