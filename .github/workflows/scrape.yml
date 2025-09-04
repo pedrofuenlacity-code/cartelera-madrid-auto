@@ -1,0 +1,68 @@
+name: scrape-madrid
+
+on:
+  schedule:
+    - cron: "15 5 * * *"     # todos los días 05:15 UTC
+  workflow_dispatch: {}
+
+# Necesario para poder hacer git push de /data
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Trae el repo con credenciales para push
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      # 2) Node 20
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3) Instalar Playwright y Chromium (imprescindible)
+      - name: Install Playwright + Chromium
+        run: |
+          npm i playwright
+          npx playwright install --with-deps chromium
+
+      # 4) Asegurar que existe /data (evita ENOENT)
+      - name: Prepare data dir
+        run: mkdir -p data
+
+      # 5) Ejecutar el scraper
+      - name: Run scraper
+        run: node tools/scrape-madrid.js
+
+      # 6) (Opcional) Enriquecer con TMDb sólo si hay API key
+      - name: Enrich with TMDb (optional)
+        if: ${{ secrets.TMDB_API_KEY != '' }}
+        run: |
+          npm i node-fetch@3
+          TMDB_API_KEY=${{ secrets.TMDB_API_KEY }} node tools/enrich-tmdb.js
+
+      # 7) Mostrar estructura por diagnóstico
+      - name: Show tree
+        run: |
+          echo "== repo tree =="
+          ls -la
+          echo "== data tree =="
+          ls -la data || true
+          echo "== data/enriched =="
+          ls -la data/enriched || true
+
+      # 8) Commit y push de /data
+      - name: Commit & push data
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@example.com"
+          git add data/
+          git commit -m "update madrid data [skip ci]" || echo "no changes"
+          git push
